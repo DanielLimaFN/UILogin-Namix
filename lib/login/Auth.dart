@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:namixlogin/login/LoginScreen.dart';
-
 import '../Core.dart';
-import 'RegisterScreen.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+class AuthScreen extends StatefulWidget {
+  const AuthScreen({Key? key}) : super(key: key);
 
   @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
+  State<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +60,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       height: 80,
                       width: double.infinity,
                       padding:
-                          const EdgeInsets.only(top: 25, left: 80, right: 80),
+                      const EdgeInsets.only(top: 25, left: 80, right: 80),
                       child: RaisedButton(
                         onPressed: () {
                           menulogin(context);
@@ -87,7 +84,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       height: 80,
                       width: double.infinity,
                       padding:
-                          const EdgeInsets.only(top: 25, left: 80, right: 80),
+                      const EdgeInsets.only(top: 25, left: 80, right: 80),
                       child: RaisedButton(
                         elevation: 0,
                         shape: RoundedRectangleBorder(
@@ -176,7 +173,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Cores.primaryColor, width: 0.5),
+                        BorderSide(color: Cores.primaryColor, width: 0.5),
                       ),
                     ),
                   ),
@@ -189,7 +186,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         color: Colors.white, fontWeight: FontWeight.w400),
                     decoration: const InputDecoration(
                       icon:
-                          Icon(Icons.mail_outline, color: Cores.secondaryColor),
+                      Icon(Icons.mail_outline, color: Cores.secondaryColor),
                       hintText: "Email",
                       filled: true,
                       fillColor: Cores.secondaryColor,
@@ -203,7 +200,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Cores.primaryColor, width: 0.5),
+                        BorderSide(color: Cores.primaryColor, width: 0.5),
                       ),
                     ),
                   ),
@@ -229,7 +226,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Cores.primaryColor, width: 0.5),
+                        BorderSide(color: Cores.primaryColor, width: 0.5),
                       ),
                     ),
                     obscureText: true,
@@ -254,7 +251,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Cores.primaryColor, width: 0.5),
+                        BorderSide(color: Cores.primaryColor, width: 0.5),
                       ),
                     ),
                     obscureText: true,
@@ -262,7 +259,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   //SizedBox(width: 10,height: 10),
                   Container(
                     padding:
-                        const EdgeInsets.only(top: 15, left: 111, right: 111),
+                    const EdgeInsets.only(top: 15, left: 111, right: 111),
                     child: RaisedButton(
                       onPressed: () {},
                       elevation: 0,
@@ -358,7 +355,7 @@ void menulogin(context) {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: Cores.primaryColor, width: 0.5),
+                      BorderSide(color: Cores.primaryColor, width: 0.5),
                     ),
                   ),
                 ),
@@ -384,7 +381,7 @@ void menulogin(context) {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: Cores.primaryColor, width: 0.5),
+                      BorderSide(color: Cores.primaryColor, width: 0.5),
                     ),
                   ),
                   obscureText: true,
@@ -392,10 +389,10 @@ void menulogin(context) {
                 //SizedBox(width: 10,height: 10),
                 Container(
                   padding:
-                      const EdgeInsets.only(top: 15, left: 170, right: 170),
+                  const EdgeInsets.only(top: 15, left: 170, right: 170),
                   child: RaisedButton(
                     onPressed: () {
-                      Navigator.of(context).push(_RouteLogin());
+
                     },
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -427,21 +424,5 @@ void menulogin(context) {
         ],
       ),
     ),
-  );
-}
-
-Route _RouteLogin() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const LoginNamix(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
   );
 }
